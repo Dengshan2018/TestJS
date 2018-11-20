@@ -42767,184 +42767,17 @@ window.OfficeExtensionBatch = window.OfficeExtension;
         return __webpack_require__.d(getter, "a", getter), getter;
     }, __webpack_require__.o = function(object, property) {
         return Object.prototype.hasOwnProperty.call(object, property);
-    }, __webpack_require__.p = "", __webpack_require__(__webpack_require__.s = 1);
-}([ function(module, exports) {
-    module.exports = OfficeExtensionBatch;
-}, function(module, exports, __webpack_require__) {
+    }, __webpack_require__.p = "", __webpack_require__(__webpack_require__.s = 0);
+}([ function(module, exports, __webpack_require__) {
     "use strict";
     Object.defineProperty(exports, "__esModule", {
         value: !0
     });
-    var DialogApi = __webpack_require__(2), AsyncStorage = __webpack_require__(3);
+    var AsyncStorage = __webpack_require__(1), DialogApi = __webpack_require__(2);
     window._OfficeRuntimeNative = {
         displayWebDialog: DialogApi.displayWebDialog,
-        AsyncStorage: AsyncStorage.AsyncStorage
+        AsyncStorage: AsyncStorage
     };
-}, function(module, exports, __webpack_require__) {
-    "use strict";
-    var __extends = this && this.__extends || function() {
-        var extendStatics = function(d, b) {
-            return (extendStatics = Object.setPrototypeOf || {
-                __proto__: []
-            } instanceof Array && function(d, b) {
-                d.__proto__ = b;
-            } || function(d, b) {
-                for (var p in b) b.hasOwnProperty(p) && (d[p] = b[p]);
-            })(d, b);
-        };
-        return function(d, b) {
-            function __() {
-                this.constructor = d;
-            }
-            extendStatics(d, b), d.prototype = null === b ? Object.create(b) : (__.prototype = b.prototype, 
-            new __());
-        };
-    }();
-    Object.defineProperty(exports, "__esModule", {
-        value: !0
-    });
-    var OfficeExtension = __webpack_require__(0), _createTopLevelServiceObject = (OfficeExtension.BatchApiHelper.createPropertyObject, 
-    OfficeExtension.BatchApiHelper.createMethodObject, OfficeExtension.BatchApiHelper.createIndexerObject, 
-    OfficeExtension.BatchApiHelper.createRootServiceObject, OfficeExtension.BatchApiHelper.createTopLevelServiceObject), _invokeMethod = (OfficeExtension.BatchApiHelper.createChildItemObject, 
-    OfficeExtension.BatchApiHelper.invokeMethod), _isNullOrUndefined = (OfficeExtension.BatchApiHelper.invokeEnsureUnchanged, 
-    OfficeExtension.BatchApiHelper.invokeSetProperty, OfficeExtension.Utility.isNullOrUndefined), _toJson = (OfficeExtension.Utility.isUndefined, 
-    OfficeExtension.Utility.throwIfNotLoaded, OfficeExtension.Utility.throwIfApiNotSupported, 
-    OfficeExtension.Utility.load, OfficeExtension.Utility.retrieve, OfficeExtension.Utility.toJson), _fixObjectPathIfNecessary = OfficeExtension.Utility.fixObjectPathIfNecessary, _processRetrieveResult = (OfficeExtension.Utility._handleNavigationPropertyResults, 
-    OfficeExtension.Utility.adjustToDateTime, OfficeExtension.Utility.processRetrieveResult), Dialog = function() {
-        function Dialog(_dialogService) {
-            this._dialogService = _dialogService;
-        }
-        return Dialog.prototype.close = function() {
-            return this._dialogService.close(), this._dialogService.context.sync();
-        }, Dialog;
-    }();
-    exports.Dialog = Dialog, exports.displayWebDialog = function(url, options) {
-        return void 0 === options && (options = {}), new OfficeExtension.CoreUtility.Promise(function(resolve, reject) {
-            if (options.width && options.height && (!isInt(options.width) || !isInt(options.height))) throw new OfficeExtension.Error({
-                code: "InvalidArgument",
-                message: "Dimensions must be % or number."
-            });
-            var ctx = new OfficeExtension.ClientRequestContext(), dialogService = DialogService.newObject(ctx), dialog = new Dialog(dialogService), eventResult = dialogService.onDialogMessage.add(function(args) {
-                switch (OfficeExtension.Utility.log("dialogMessageHandler:" + JSON.stringify(args)), 
-                args.type) {
-                  case 17:
-                    args.error ? reject(args.error) : resolve(dialog);
-                    break;
-
-                  case 12:
-                    options.onMessage && options.onMessage(args.message, dialog);
-                    break;
-
-                  case 10:
-                  default:
-                    12006 === args.originalErrorCode ? (eventResult && (eventResult.remove(), ctx.sync()), 
-                    options.onClose && options.onClose()) : options.onRuntimeError && (options.onRuntimeError(args.error, dialog), 
-                    reject(args.error));
-                }
-                return OfficeExtension.CoreUtility.Promise.resolve();
-            });
-            return ctx.sync().then(function() {
-                var dialogOptions = {
-                    width: options.width ? parseInt(options.width) : 50,
-                    height: options.height ? parseInt(options.height) : 50,
-                    displayInIFrame: options.displayInIFrame
-                };
-                return dialogService.displayDialog(url, dialogOptions), ctx.sync();
-            }).catch(function(e) {
-                reject(e);
-            });
-        });
-        function isInt(value) {
-            return /^(\-|\+)?([0-9]+)%?$/.test(value);
-        }
-    };
-    var DialogEventType, DialogService = function(_super) {
-        function DialogService() {
-            return null !== _super && _super.apply(this, arguments) || this;
-        }
-        return __extends(DialogService, _super), Object.defineProperty(DialogService.prototype, "_className", {
-            get: function() {
-                return "DialogService";
-            },
-            enumerable: !0,
-            configurable: !0
-        }), DialogService.prototype.close = function() {
-            _invokeMethod(this, "Close", 1, [], 4, 0);
-        }, DialogService.prototype.displayDialog = function(url, options) {
-            _invokeMethod(this, "DisplayDialog", 1, [ url, options ], 4, 0);
-        }, DialogService.prototype._handleResult = function(value) {
-            (_super.prototype._handleResult.call(this, value), _isNullOrUndefined(value)) || _fixObjectPathIfNecessary(this, value);
-        }, DialogService.prototype._handleRetrieveResult = function(value, result) {
-            _super.prototype._handleRetrieveResult.call(this, value, result), _processRetrieveResult(this, value, result);
-        }, DialogService.newObject = function(context) {
-            return _createTopLevelServiceObject(DialogService, context, "Microsoft.Dialog.DialogService", !1, 4);
-        }, Object.defineProperty(DialogService.prototype, "onDialogMessage", {
-            get: function() {
-                return this.m_dialogMessage || (this.m_dialogMessage = new OfficeExtension.GenericEventHandlers(this.context, this, "DialogMessage", {
-                    eventType: 65536,
-                    registerFunc: function() {},
-                    unregisterFunc: function() {},
-                    getTargetIdFunc: function() {
-                        return null;
-                    },
-                    eventArgsTransformFunc: function(args) {
-                        var transformedArgs;
-                        try {
-                            var parsedMessage = JSON.parse(args.message), error = parsedMessage.errorCode ? new OfficeExtension.Error(function(internalCode) {
-                                var _a, table = ((_a = {})[12002] = {
-                                    code: "InvalidUrl",
-                                    message: "Cannot load URL, no such page or bad URL syntax."
-                                }, _a[12003] = {
-                                    code: "InvalidUrl",
-                                    message: "HTTPS is required."
-                                }, _a[12004] = {
-                                    code: "Untrusted",
-                                    message: "Domain is not trusted."
-                                }, _a[12005] = {
-                                    code: "InvalidUrl",
-                                    message: "HTTPS is required."
-                                }, _a[12007] = {
-                                    code: "FailedToOpen",
-                                    message: "Another dialog is already opened."
-                                }, _a);
-                                return table[internalCode] ? table[internalCode] : {
-                                    code: "Unknown",
-                                    message: "An unknown error has occured"
-                                };
-                            }(parsedMessage.errorCode)) : null;
-                            transformedArgs = {
-                                originalErrorCode: parsedMessage.errorCode,
-                                type: parsedMessage.type,
-                                error: error,
-                                message: parsedMessage.message
-                            };
-                        } catch (e) {
-                            transformedArgs = {
-                                originalErrorCode: null,
-                                type: 17,
-                                error: new OfficeExtension.Error({
-                                    code: "GenericException",
-                                    message: "Unknown error"
-                                }),
-                                message: e.message
-                            };
-                        }
-                        return OfficeExtension.Utility._createPromiseFromResult(transformedArgs);
-                    }
-                })), this.m_dialogMessage;
-            },
-            enumerable: !0,
-            configurable: !0
-        }), DialogService.prototype.toJSON = function() {
-            return _toJson(this, {}, {});
-        }, DialogService;
-    }(OfficeExtension.ClientObject);
-    exports.DialogService = DialogService, function(DialogEventType) {
-        DialogEventType[DialogEventType.dialogMessageReceived = 0] = "dialogMessageReceived", 
-        DialogEventType[DialogEventType.dialogEventReceived = 1] = "dialogEventReceived";
-    }(DialogEventType || (DialogEventType = {})), function(DialogErrorCodes) {
-        DialogErrorCodes.generalException = "GeneralException";
-    }(exports.DialogErrorCodes || (exports.DialogErrorCodes = {}));
 }, function(module, exports, __webpack_require__) {
     "use strict";
     Object.defineProperty(exports, "__esModule", {
@@ -43044,6 +42877,69 @@ window.OfficeExtensionBatch = window.OfficeExtension;
             resolve(results));
         });
     };
+}, function(module, exports, __webpack_require__) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+        value: !0
+    });
+    var OfficeExtension = __webpack_require__(3), Dialog = function() {
+        function Dialog(_dialog) {
+            this._dialog = _dialog;
+        }
+        return Dialog.prototype.close = function() {
+            return this._dialog.close(), OfficeExtension.CoreUtility.Promise.resolve();
+        }, Dialog;
+    }();
+    exports.Dialog = Dialog, exports.displayWebDialog = function(url, options) {
+        return new OfficeExtension.CoreUtility.Promise(function(resolve, reject) {
+            if (options.width && options.height && (!isInt(options.width) || !isInt(options.height))) throw new OfficeExtension.Error({
+                code: "InvalidArgument",
+                message: 'Dimensions must be "number%" or number.'
+            });
+            var dialog, dialogOptions = {
+                width: options.width ? parseInt(options.width, 10) : 50,
+                height: options.height ? parseInt(options.height, 10) : 50,
+                displayInIframe: options.displayInIFrame || !1
+            };
+            function messageHandler(args) {
+                options.onMessage && options.onMessage(args.message, dialog);
+            }
+            function eventHandler(args) {
+                12006 === args.error ? options.onClose && options.onClose() : options.onRuntimeError && options.onRuntimeError(new OfficeExtension.Error(lookupErrorCodeAndMessage(args.error)), dialog);
+            }
+            function isInt(value) {
+                return /^(\-|\+)?([0-9]+)%?$/.test(value);
+            }
+            function lookupErrorCodeAndMessage(internalCode) {
+                var _a, table = ((_a = {})[12002] = {
+                    code: "InvalidUrl",
+                    message: "Cannot load URL, no such page or bad URL syntax."
+                }, _a[12003] = {
+                    code: "InvalidUrl",
+                    message: "HTTPS is required."
+                }, _a[12004] = {
+                    code: "Untrusted",
+                    message: "Domain is not trusted."
+                }, _a[12005] = {
+                    code: "InvalidUrl",
+                    message: "HTTPS is required."
+                }, _a[12007] = {
+                    code: "FailedToOpen",
+                    message: "Another dialog is already opened."
+                }, _a);
+                return table[internalCode] ? table[internalCode] : {
+                    code: "Unknown",
+                    message: "An unknown error has occured"
+                };
+            }
+            Office.context.ui.displayDialogAsync(url, dialogOptions, function(asyncResult) {
+                "failed" === asyncResult.status ? reject(new OfficeExtension.Error(lookupErrorCodeAndMessage(asyncResult.error.code))) : ((dialog = asyncResult.value).addEventHandler(Office.EventType.DialogMessageReceived, messageHandler), 
+                dialog.addEventHandler(Office.EventType.DialogEventReceived, eventHandler), resolve(new Dialog(dialog)));
+            });
+        });
+    };
+}, function(module, exports) {
+    module.exports = OfficeExtensionBatch;
 } ]);
 
 
