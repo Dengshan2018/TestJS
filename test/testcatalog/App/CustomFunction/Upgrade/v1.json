@@ -1,6 +1,9 @@
 ﻿{
 	"functions": [
 		{
+            "id": "hideSync",
+		    "description": "hideSync to the input numbers",
+			"helpUrl": "http://dev.office.com",
 			"name": "hideSync", 
 			"result": {
 				"type": "number",
@@ -9,6 +12,7 @@
 			"parameters": [
 				{
 					"name": "num",
+					"description": "first number to hide",
 					"type": "number",
 					"dimensionality": "scalar"
 				}
@@ -18,6 +22,9 @@
 			}
 		},
 		{
+            "id": "changeSync",
+		    "description": "changeSync to the input numbers",
+			"helpUrl": "http://dev.office.com",
 			"name": "changeSync", 
 			"result": {
 				"type": "number",
@@ -26,6 +33,7 @@
 			"parameters": [
 				{
 					"name": "num",
+					"description": "first number to hide",
 					"type": "number",
 					"dimensionality": "scalar"
 				}
@@ -36,6 +44,9 @@
 		},
 
 		{
+            "id": "hideAsync",
+		    "description": "hideAsync to the input numbers",
+			"helpUrl": "http://dev.office.com",
 			"name": "hideAsync", 
 			"result": {
 				"type": "number",
@@ -44,6 +55,7 @@
 			"parameters": [
 				{
 					"name": "num",
+					"description": "first number to hide",
 					"type": "number",
 					"dimensionality": "scalar"
 				}
@@ -53,6 +65,9 @@
 			}
 		},
 		{
+            "id": "changeAsync",
+		    "description": "changeAsync to the input numbers",
+			"helpUrl": "http://dev.office.com",
 			"name": "changeAsync", 
 			"result": {
 				"type": "number",
@@ -61,6 +76,7 @@
 			"parameters": [
 				{
 					"name": "num",
+					"description": "first number to hide",
 					"type": "number",
 					"dimensionality": "scalar"
 				}

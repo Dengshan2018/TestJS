@@ -14,7 +14,7 @@
 		<Host Name="Workbook" />
 	</Hosts>
 	<DefaultSettings>
-		<SourceLocation DefaultValue="https://localhost:7010/App/CustomFunction/Upgrade/v1.html"/>
+		<SourceLocation DefaultValue="https://dengshan2018.github.io/TestJS/test/testcatalog/App/CustomFunction/Upgrade/v1.html"/>
 	</DefaultSettings>
 	<Permissions>ReadWriteDocument</Permissions>
 	<VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
@@ -38,9 +38,9 @@
 		</Hosts>
 		<Resources>
 			<bt:Urls>
-				<bt:Url id="residUDFjson" DefaultValue="https://localhost:7010/App/CustomFunction/Upgrade/v1.json" />
-				<bt:Url id="residUDFjs" DefaultValue="https://localhost:7010/App/CustomFunction/Upgrade/v1.js" />
-				<bt:Url id="residUDFhtml" DefaultValue="https://localhost:7010/App/CustomFunction/Upgrade/v1.html" />
+				<bt:Url id="residUDFjson" DefaultValue="https://dengshan2018.github.io/TestJS/test/testcatalog/App/CustomFunction/Upgrade/v1.json" />
+				<bt:Url id="residUDFjs" DefaultValue="https://dengshan2018.github.io/TestJS/test/testcatalog/App/CustomFunction/Upgrade/v1.js" />
+				<bt:Url id="residUDFhtml" DefaultValue="https://dengshan2018.github.io/TestJS/test/testcatalog/App/CustomFunction/Upgrade/v1.html" />
 			</bt:Urls>
 			<bt:ShortStrings>
 				<bt:String id="residNS" DefaultValue="msft.up" />
