@@ -1,6 +1,9 @@
 ﻿{
 	"functions": [
 		{
+            "id": "changeSync",
+		    "description": "changeSync to the input numbers",
+			"helpUrl": "http://dev.office.com",
 			"name": "changeSync", 
 			"result": {
 				"type": "number",
@@ -9,6 +12,7 @@
 			"parameters": [
 				{
 					"name": "num",
+					"description": "first number to changeSync",
 					"type": "number",
 					"dimensionality": "scalar"
 				}
@@ -18,6 +22,9 @@
 			}
 		},
 		{
+            "id": "showSync",
+		    "description": "showSync to the input numbers",
+			"helpUrl": "http://dev.office.com",
 			"name": "showSync", 
 			"result": {
 				"type": "number",
@@ -26,6 +33,7 @@
 			"parameters": [
 				{
 					"name": "num",
+					"description": "first number to showSync",
 					"type": "number",
 					"dimensionality": "scalar"
 				}
@@ -36,6 +44,9 @@
 		},
 
 		{
+            "id": "changeAsync",
+		    "description": "changeAsync to the input numbers",
+			"helpUrl": "http://dev.office.com",
 			"name": "changeAsync", 
 			"result": {
 				"type": "number",
@@ -44,6 +55,7 @@
 			"parameters": [
 				{
 					"name": "num",
+					"description": "first number to changeAsync",
 					"type": "number",
 					"dimensionality": "scalar"
 				}
@@ -53,6 +65,9 @@
 			}
 		},
 		{
+            "id": "showAsync",
+		    "description": "showAsync to the input numbers",
+			"helpUrl": "http://dev.office.com",
 			"name": "showAsync", 
 			"result": {
 				"type": "number",
@@ -61,6 +76,7 @@
 			"parameters": [
 				{
 					"name": "num",
+					"description": "first number to showAsync",
 					"type": "number",
 					"dimensionality": "scalar"
 				}
