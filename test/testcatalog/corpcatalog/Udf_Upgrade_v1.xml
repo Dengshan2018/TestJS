@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+ xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
+ xsi:type="TaskPaneApp">
+	<Id>6C765408-0DAD-46D0-AC7F-40322EC83FCC</Id>
+	<Version>1.0.0.1</Version>
+	<ProviderName>ODP</ProviderName>
+	<DefaultLocale>en-US</DefaultLocale>
+	<DisplayName DefaultValue="Custom Functions Upgrade Test v1" />
+	<Description DefaultValue="Custom Functions Upgrade Test v1" />
+	<Hosts>
+		<Host Name="Workbook" />
+	</Hosts>
+	<DefaultSettings>
+		<SourceLocation DefaultValue="https://localhost:7010/App/CustomFunction/Upgrade/v1.html"/>
+	</DefaultSettings>
+	<Permissions>ReadWriteDocument</Permissions>
+	<VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+		<Hosts>
+			<Host xsi:type="Workbook">
+				<AllFormFactors>
+					<ExtensionPoint xsi:type="CustomFunctions">
+						<Script>
+							<SourceLocation resid="residUDFjs" />
+						</Script>
+						<Page>
+							<SourceLocation resid="residUDFhtml"/>
+						</Page>
+						<Metadata>
+							<SourceLocation resid="residUDFjson" />
+						</Metadata>
+						<Namespace resid="residNS" />
+					</ExtensionPoint>
+				</AllFormFactors>
+			</Host>
+		</Hosts>
+		<Resources>
+			<bt:Urls>
+				<bt:Url id="residUDFjson" DefaultValue="https://localhost:7010/App/CustomFunction/Upgrade/v1.json" />
+				<bt:Url id="residUDFjs" DefaultValue="https://localhost:7010/App/CustomFunction/Upgrade/v1.js" />
+				<bt:Url id="residUDFhtml" DefaultValue="https://localhost:7010/App/CustomFunction/Upgrade/v1.html" />
+			</bt:Urls>
+			<bt:ShortStrings>
+				<bt:String id="residNS" DefaultValue="msft.up" />
+			</bt:ShortStrings>
+		</Resources>
+	</VersionOverrides>
+</OfficeApp>

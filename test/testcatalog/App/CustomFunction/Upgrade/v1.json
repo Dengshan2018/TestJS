@@ -1,0 +1,74 @@
+﻿{
+	"functions": [
+		{
+			"name": "hideSync", 
+			"result": {
+				"type": "number",
+				"dimensionality": "scalar"
+			},
+			"parameters": [
+				{
+					"name": "num",
+					"type": "number",
+					"dimensionality": "scalar"
+				}
+			],
+			"options": {
+				"sync": true
+			}
+		},
+		{
+			"name": "changeSync", 
+			"result": {
+				"type": "number",
+				"dimensionality": "scalar"
+			},
+			"parameters": [
+				{
+					"name": "num",
+					"type": "number",
+					"dimensionality": "scalar"
+				}
+			],
+			"options": {
+				"sync": true
+			}
+		},
+
+		{
+			"name": "hideAsync", 
+			"result": {
+				"type": "number",
+				"dimensionality": "scalar"
+			},
+			"parameters": [
+				{
+					"name": "num",
+					"type": "number",
+					"dimensionality": "scalar"
+				}
+			],
+			"options": {
+				"sync": false
+			}
+		},
+		{
+			"name": "changeAsync", 
+			"result": {
+				"type": "number",
+				"dimensionality": "scalar"
+			},
+			"parameters": [
+				{
+					"name": "num",
+					"type": "number",
+					"dimensionality": "scalar"
+				}
+			],
+			"options": {
+				"sync": false
+			}
+		}
+
+	]
+}
