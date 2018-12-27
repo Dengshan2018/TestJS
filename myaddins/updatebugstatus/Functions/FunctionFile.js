@@ -5,7 +5,7 @@
     };
 })();
 
-async function AddToHistory() {
+async function AddToHistory(event) {
     await Excel.run(async (context) => {
         var activeBugHistoryTab = context.workbook.tables.getItem("ActiveBugsHistory");
         var activeBugTab = context.workbook.tables.getItem("ActiveBugs");
@@ -44,5 +44,6 @@ async function AddToHistory() {
         }
 
         await context.sync();
+		event.completed();
     });
 }
