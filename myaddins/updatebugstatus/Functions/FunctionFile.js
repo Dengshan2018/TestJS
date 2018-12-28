@@ -6,7 +6,7 @@
 })();
 
 function AddToHistory(event) {
-    Excel.run((context) => {
+        Excel.run(function (context)  {
         var activeBugHistoryTab = context.workbook.tables.getItem("ActiveBugsHistory");
         var activeBugTab = context.workbook.tables.getItem("ActiveBugs");
         var resolvedBugHistoryTab = context.workbook.tables.getItem("ResolvedBugsHistory");
@@ -43,7 +43,7 @@ function AddToHistory(event) {
             //OfficeHelpers.UI.notify("Done!");
         }
 
-        context.sync();
-        event.completed();
+		event.completed();
+        return context.sync();        
     });
 }
