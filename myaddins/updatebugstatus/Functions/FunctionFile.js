@@ -5,8 +5,8 @@
     };
 })();
 
-async function AddToHistory(event) {
-    await Excel.run(async (context) => {
+function AddToHistory(event) {
+    Excel.run((context) => {
         var activeBugHistoryTab = context.workbook.tables.getItem("ActiveBugsHistory");
         var activeBugTab = context.workbook.tables.getItem("ActiveBugs");
         var resolvedBugHistoryTab = context.workbook.tables.getItem("ResolvedBugsHistory");
@@ -17,7 +17,7 @@ async function AddToHistory(event) {
 
             var columnResolvedBugs = resolvedBugTab.columns.getItemAt(1);
             columnResolvedBugs.load("values");
-            await context.sync().then(function () {
+            context.sync().then(function () {
                 var currentValues = columnActiveBugs.values;
                 var today = new Date();
 
@@ -43,7 +43,7 @@ async function AddToHistory(event) {
             //OfficeHelpers.UI.notify("Done!");
         }
 
-        await context.sync();
-		event.completed();
+        context.sync();
+        event.completed();
     });
 }
