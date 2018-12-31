@@ -38,12 +38,14 @@ function AddToHistory(event) {
                     newValues2[0][i + 1] = currentValues[i + 1][0];
                 }
                 resolvedBugHistoryTab.rows.add(null, newValues2);
+				context.sync().then(function () {
+					event.completed();
+				}); 
             });
 
             //OfficeHelpers.UI.notify("Done!");
         }
-
-		event.completed();
-        return context.sync();        
+		
+		return context.sync();
     });
 }
