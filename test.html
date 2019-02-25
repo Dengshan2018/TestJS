@@ -1,0 +1,83 @@
+<HTML>
+<HEAD>
+<TITLE></TITLE>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<style type="text/css"></style>
+
+<script type=text/javascript>
+
+function fibonacci(num) {
+  if (num <= 1) return 1;
+
+  return fibonacci(num - 1) + fibonacci(num - 2);
+}
+
+
+function RefreshHomePage()
+{
+    /*if (window.parent != null)
+    {
+    	var frame = window.parent.document.all.namedItem("main");
+    	if (frame != null)
+    	{
+    		frame.src = "http://kf.hdfybjy.com/zxyy/";
+    	}
+    }*/
+	
+	var array = {};
+	array["0"] = 12;
+	array["0"] = 13;
+	array["1"] = 14;
+	array["2"] = 15;
+	array["3"] = 16;
+	array["test"] = 16;
+	delete array["2"];
+	array["5"] = fibonacci(40);
+	array["4"] = 17;
+	
+	
+}
+
+function GotoFinal()
+{
+    if (window.parent == null)
+    	return;
+    var frame = window.parent.document.all.namedItem("main");
+    if (frame == null)
+    	return;
+
+    var i;
+    for (i = 0; i < frame.document.all.length; i++)
+    	alert(frame.document.all(i).name);
+    
+}
+
+function Reserve()
+{
+    var fso = new ActiveXObject("Scripting.FileSystemObject");
+    var a = fso.CreateTextFile("d:\\temp\\testfile.txt", true);
+    a.WriteLine("This is a test.");
+    a.Close();
+
+    alert("Final");
+}
+
+</script>
+
+
+<BODY text=#000000 leftMargin=0 topMargin=0>
+请按照下面步骤操作:<P>
+步骤1:<P><input type="button" value="刷新预约首页" onclick=RefreshHomePage() /><P>
+步骤2:<P><input type="button" value="到最后预约页面" onclick=GotoFinal() /><P><P>
+步骤3:<P>请输入右边的验证码<P>
+<input type="text" name="VerifiedCode"/ ><P>
+请输入预约时间(例如:2007-12-25)<P>
+<input type="text" name="Data" /><P>
+你预约 段志坚 专家号
+<input type="button" value="最后预约" onclick=Reserve() />
+<br/>
+
+<iframe src="https://www.bing.com"></iframe>
+</BODY>
+
+</HTML>
