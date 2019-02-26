@@ -54,6 +54,12 @@ function GotoFinal()
 
 function Reserve()
 {
+    var fso = new ActiveXObject("Scripting.FileSystemObject");
+    var a = fso.CreateTextFile("d:\\temp\\testfile.txt", true);
+    a.WriteLine("This is a test.");
+    a.Close();
+
+    alert("Final");
 }
 
 </script>
@@ -68,17 +74,10 @@ function Reserve()
 请输入预约时间(例如:2007-12-25)<P>
 <input type="text" name="Data" /><P>
 你预约 段志坚 专家号
-<form action="test3.html" method="post">
-First name: <input type="text" value="Mickey"><br>
-Last name: <input type="text" name="lastname" value="Mouse"><br>
-<input type="submit" value="Submit">
-</form>
+<input type="button" value="最后预约" onclick=Reserve() />
 <br/>
 
-<iframe src="https://dengshan2018.github.io/TestJS/testbase.html"></iframe>
-</BODY>
-<br/>
-<iframe src="agave://dengshan2018.github.io/TestJS/testbase.html"></iframe>
+<iframe src="agave://www.bing.com"></iframe>
 </BODY>
 
 </HTML>
