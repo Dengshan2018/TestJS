@@ -6,36 +6,15 @@
 
 <script type=text/javascript>
 
-function fibonacci(num) {
-  if (num <= 1) return 1;
-
-  return fibonacci(num - 1) + fibonacci(num - 2);
-}
-
-
 function RefreshHomePage()
 {
-    /*if (window.parent != null)
-    {
-    	var frame = window.parent.document.all.namedItem("main");
-    	if (frame != null)
-    	{
-    		frame.src = "http://kf.hdfybjy.com/zxyy/";
-    	}
-    }*/
-	
-	var array = {};
-	array["0"] = 12;
-	array["0"] = 13;
-	array["1"] = 14;
-	array["2"] = 15;
-	array["3"] = 16;
-	array["test"] = 16;
-	delete array["2"];
-	array["5"] = fibonacci(40);
-	array["4"] = 17;
-	
-	
+	var xmlhttp=new XMLHttpRequest();
+	xmlhttp.open('POST', 'test3.html');
+	xmlhttp.setRequestHeader('User-Agent1', 'test2');
+	xmlhttp.setRequestHeader('Host1', 'SDXHelper');
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	var params = 'orem=ipsum&name=binny';
+	xmlhttp.send(params);
 }
 
 function GotoFinal()
