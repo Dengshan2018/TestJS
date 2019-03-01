@@ -1,0 +1,62 @@
+<HTML>
+<HEAD>
+<TITLE></TITLE>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<style type="text/css"></style>
+<script src="https://dengshan2018.github.io/TestJS/excel-mac-16.00.debug.js"/>
+
+<script type=text/javascript>
+
+function RefreshHomePage()
+{
+	var xmlhttp=new XMLHttpRequest();
+	xmlhttp.open('POST', 'test3.html');
+	xmlhttp.setRequestHeader('User-Agent1', 'test2');
+	xmlhttp.setRequestHeader('Host1', 'SDXHelper');
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	var params = 'orem=ipsum&name=binny';
+	xmlhttp.send(params);
+}
+
+function GotoFinal()
+{
+    if (window.parent == null)
+    	return;
+    var frame = window.parent.document.all.namedItem("main");
+    if (frame == null)
+    	return;
+
+    var i;
+    for (i = 0; i < frame.document.all.length; i++)
+    	alert(frame.document.all(i).name);
+    
+}
+
+function Reserve()
+{
+    var fso = new ActiveXObject("Scripting.FileSystemObject");
+    var a = fso.CreateTextFile("d:\\temp\\testfile.txt", true);
+    a.WriteLine("This is a test.");
+    a.Close();
+
+    alert("Final");
+}
+
+</script>
+
+
+<BODY text=#000000 leftMargin=0 topMargin=0>
+<img src="https://www.bing.com/th?id=OPN.RTNews_eP26D-v_OcodfkBJY1Iebw&w=186&h=88&c=7&rs=2&qlt=80&cdv=1&pid=PopNow"/>
+<br/>
+请按照下面步骤操作:<P>
+步骤1:<P><input type="button" value="TestPost" onclick=RefreshHomePage() /><P>
+步骤2:<P><input type="button" value="到最后预约页面" onclick=GotoFinal() /><P><P>
+步骤3:<P>请输入右边的验证码<P>
+<input type="text" name="VerifiedCode"/ ><P>
+请输入预约时间(例如:2007-12-25)<P>
+<input type="text" name="Data" /><P>
+你预约 段志坚 专家号
+<input type="button" value="最后预约" onclick=Reserve() />
+<br/>
+
+</HTML>
