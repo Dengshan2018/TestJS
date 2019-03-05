@@ -17,8 +17,8 @@ self.addEventListener('message', event => {
 	{
       case 'add':
           event.ports[0].postMessage({
-            error: null
-			command: 'event.data.command'
+            error: null,
+			command: event.data.command,
 			result: 'test'
           });
     }
