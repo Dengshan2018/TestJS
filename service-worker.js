@@ -1,17 +1,25 @@
 
-webkit.messageHandlers.agaveserviceworker.postMessage('execute');
-
 self.addEventListener('install', event => {
 	console.log('install');
-	webkit.messageHandlers.agaveserviceworker.postMessage('install');
 });
 
 self.addEventListener('activate', event => {
 	console.log('active');
-	webkit.messageHandlers.agaveserviceworker.postMessage('activate');
 });
 
 self.addEventListener('fetch', event => {
 	console.log('fetch');
-	webkit.messageHandlers.agaveserviceworker.postMessage('fetch');
+});
+
+self.addEventListener('message', event => {
+	console.log('message');
+	switch (event.data.command)
+	{
+      case 'add':
+          event.ports[0].postMessage({
+            error: null
+			command: event.data.command
+			result: 'test'
+          });
+    }
 });
