@@ -49,6 +49,7 @@ self.addEventListener('message', event => {
 			command: event.data.command,
 			result: response.clone()
           });
+		});
 		return;
 	case 'externalfetch':
 		callback(event.data);
