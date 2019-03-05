@@ -9,6 +9,16 @@ if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('service-worker.js');
   navigator.serviceWorker.addEventListener('message', function(event) {
     console.log(event.data);
+	if (event.data.id == 'id')
+	{
+		sendMessage({
+			  command: 'externalfetch',
+			  data: 'picture'
+			}).then(function(data) {
+			  // If the promise resolves, just display a success message.
+			  console.log(data.command);
+			});    
+	}
   });
 }
 </script>
@@ -60,7 +70,7 @@ function GotoFinal()
     }).then(function(data) {
       // If the promise resolves, just display a success message.
       console.log(data.command);
-    })    
+    });
 }
 
 function Reserve()
