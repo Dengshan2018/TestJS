@@ -1,10 +1,39 @@
 var callback;
+
+self.clients.matchAll().then(function(clients) {
+		  clients.forEach(function(client) {
+			client.postMessage({
+				url: 'url2',
+				data: 'my',
+				id: 'init'
+			});
+		  });
+		});
+		
 self.addEventListener('install', event => {
 	console.log('install');
+	self.clients.matchAll().then(function(clients) {
+		  clients.forEach(function(client) {
+			client.postMessage({
+				url: 'url2',
+				data: 'my',
+				id: 'install'
+			});
+		  });
+		});
 });
 
 self.addEventListener('activate', event => {
 	console.log('active');
+	self.clients.matchAll().then(function(clients) {
+		  clients.forEach(function(client) {
+			client.postMessage({
+				url: 'url2',
+				data: 'my',
+				id: 'active'
+			});
+		  });
+		});
 });
 
 self.addEventListener('fetch', event => {
