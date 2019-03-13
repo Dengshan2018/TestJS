@@ -29,6 +29,15 @@ function TestGetPage()
 	var i = 0;
 }
 
+function TestGetPage2()
+{
+	var request = new XMLHttpRequest();
+    request.open('GET', 'https://httpbin.org/get', /* async = */ false);
+    request.send();
+
+	var i = 0;
+}
+
 function GotoFinal()
 {
     if (window.parent == null)
@@ -62,7 +71,9 @@ function Reserve()
 请按照下面步骤操作:<P>
 TestPost:<P><input type="button" value="TestPost" onclick=TestPostPage() /><P>
 <P>
-TestGet:<P><input type="button" value="TestPost" onclick=TestGetPage() /><P>
+TestGet:<P><input type="button" value="TestGet" onclick=TestGetPage() /><P>
+<P>
+TestGet2:<P><input type="button" value="TestGet" onclick=TestGetPage2() /><P>
 步骤2:<P><input type="button" value="到最后预约页面" onclick=GotoFinal() /><P><P>
 步骤3:<P>请输入右边的验证码<P>
 <input type="text" name="VerifiedCode"/ ><P>
