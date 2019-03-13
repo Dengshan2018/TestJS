@@ -7,7 +7,7 @@
 
 <script type=text/javascript>
 
-function RefreshHomePage()
+function TestPostPage()
 {
 	var xmlhttp=new XMLHttpRequest();
 	xmlhttp.open('POST', 'test3.html');
@@ -16,6 +16,17 @@ function RefreshHomePage()
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	var params = 'orem=ipsum&name=binny';
 	xmlhttp.send(params);
+	var i = 0;
+}
+
+function TestGetPage()
+{
+	var xmlhttp=new XMLHttpRequest();
+	xmlhttp.open('GET', 'test3.html');
+	xmlhttp.setRequestHeader('User-Agent1', 'test2');
+	xmlhttp.setRequestHeader('Host1', 'SDXHelper');
+	xmlhttp.send();
+	var i = 0;
 }
 
 function GotoFinal()
@@ -49,7 +60,9 @@ function Reserve()
 <img src="https://www.bing.com/th?id=OPN.RTNews_eP26D-v_OcodfkBJY1Iebw&w=186&h=88&c=7&rs=2&qlt=80&cdv=1&pid=PopNow"/>
 <br/>
 请按照下面步骤操作:<P>
-步骤1:<P><input type="button" value="TestPost" onclick=RefreshHomePage() /><P>
+TestPost:<P><input type="button" value="TestPost" onclick=TestPostPage() /><P>
+<P>
+TestGet:<P><input type="button" value="TestPost" onclick=TestGetPage() /><P>
 步骤2:<P><input type="button" value="到最后预约页面" onclick=GotoFinal() /><P><P>
 步骤3:<P>请输入右边的验证码<P>
 <input type="text" name="VerifiedCode"/ ><P>
