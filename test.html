@@ -72,4 +72,25 @@ TestGet:<P><input type="button" value="TestPost" onclick=TestGetPage() /><P>
 <input type="button" value="最后预约" onclick=Reserve() />
 <br/>
 
+<form id='test-form'>
+  Input1: <input name='input1'><br>
+  Input2: <input name='input2'><br>
+  <input type='submit'>
+</form>
+<script>
+  var testForm = document.getElementById('test-form');
+  testForm.onsubmit = function(event) {
+    event.preventDefault();
+
+    var request = new XMLHttpRequest();
+    // POST to httpbin which returns the POST data as JSON
+    request.open('POST', 'https://httpbin.org/post', /* async = */ false);
+
+    var formData = new FormData(document.getElementById('test-form'));
+    request.send(formData);
+
+    console.log(request.response);
+  }
+</script>
+
 </HTML>
