@@ -32,7 +32,12 @@ function TestGetPage()
 function TestGetPage2()
 {
 	var request = new XMLHttpRequest();
-    request.open('GET', 'https://httpbin.org/get', /* async = */ false);
+    request.open('GET', 'https://httpbin.org/get', /* async = */ true);
+	request..onload = function() {
+	  console.log('async status code: ' + request.status);
+	  console.log('async response length: ' + request.responseText.length);
+	  console.log('async response: ' + request.responseText.substring(0, 15) + '...');
+	};
     request.send();
 
 	var i = 0;
@@ -68,19 +73,19 @@ function Reserve()
 <BODY text=#000000 leftMargin=0 topMargin=0>
 <img src="https://www.bing.com/th?id=OPN.RTNews_eP26D-v_OcodfkBJY1Iebw&w=186&h=88&c=7&rs=2&qlt=80&cdv=1&pid=PopNow"/>
 <br/>
-请按照下面步骤操作:<P>
+请按照下面步骤操�?<P>
 TestPost:<P><input type="button" value="TestPost" onclick=TestPostPage() /><P>
 <P>
 TestGet:<P><input type="button" value="TestGet" onclick=TestGetPage() /><P>
 <P>
 TestGet2:<P><input type="button" value="TestGet" onclick=TestGetPage2() /><P>
-步骤2:<P><input type="button" value="到最后预约页面" onclick=GotoFinal() /><P><P>
-步骤3:<P>请输入右边的验证码<P>
+步骤2:<P><input type="button" value="到最后预约页�? onclick=GotoFinal() /><P><P>
+步骤3:<P>请输入右边的验证�?P>
 <input type="text" name="VerifiedCode"/ ><P>
-请输入预约时间(例如:2007-12-25)<P>
+请输入预约时�?例如:2007-12-25)<P>
 <input type="text" name="Data" /><P>
-你预约 段志坚 专家号
-<input type="button" value="最后预约" onclick=Reserve() />
+你预�?段志�?专家�?
+<input type="button" value="最后预�? onclick=Reserve() />
 <br/>
 
 <form id='test-form'>
@@ -95,9 +100,14 @@ TestGet2:<P><input type="button" value="TestGet" onclick=TestGetPage2() /><P>
 
     var request = new XMLHttpRequest();
     // POST to httpbin which returns the POST data as JSON
-    request.open('POST', 'https://httpbin.org/post', /* async = */ false);
+    request.open('POST', 'https://httpbin.org/post', /* async = */ true);
 
     var formData = new FormData(document.getElementById('test-form'));
+	request..onload = function() {
+	  console.log('async status code: ' + request.status);
+	  console.log('async response length: ' + request.responseText.length);
+	  console.log('async response: ' + request.responseText.substring(0, 15) + '...');
+	};
     request.send(formData);
 
     console.log(request.response);
