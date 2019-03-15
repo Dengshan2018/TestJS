@@ -33,7 +33,7 @@ function TestGetPage2()
 {
 	var request = new XMLHttpRequest();
     request.open('GET', 'https://httpbin.org/get', /* async = */ true);
-	request..onload = function() {
+	request.onload = function() {
 	  console.log('async status code: ' + request.status);
 	  console.log('async response length: ' + request.responseText.length);
 	  console.log('async response: ' + request.responseText.substring(0, 15) + '...');
@@ -103,7 +103,7 @@ TestGet2:<P><input type="button" value="TestGet" onclick=TestGetPage2() /><P>
     request.open('POST', 'https://httpbin.org/post', /* async = */ true);
 
     var formData = new FormData(document.getElementById('test-form'));
-	request..onload = function() {
+	request.onload = function() {
 	  console.log('async status code: ' + request.status);
 	  console.log('async response length: ' + request.responseText.length);
 	  console.log('async response: ' + request.responseText.substring(0, 15) + '...');
