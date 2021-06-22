@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script lang="javascript">
+            function fnDoIt()
+            {
+                var iframe = document.createElement("iframe");
+                console.log("Repro: iframe created");
+                iframe.id = "protocolCheckerIFrame";
+                iframe.src = "about:blank";
+                console.log("Repro: about blank set");
+                document.body.appendChild(iframe);
+                console.log("Repro: iframe appended");
+                iframe.contentWindow.location.href = "http://www.baidu.com";
+                console.log("Repro: iframe href changed to custom protocol");
+            }
+
+          
+        </script>
+    </head>
+    <body>
+        Hello, I am an Office add-in!
+        <br/>
+        <input type="button" id="button1" value="Click to launch custom protocol handler" onclick="fnDoIt()"/>
+    </body>
+</html>
