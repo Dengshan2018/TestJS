@@ -4,15 +4,7 @@
         <script lang="javascript">
             function fnDoIt()
             {
-                var iframe = document.createElement("iframe");
-                console.log("Repro: iframe created");
-                iframe.id = "protocolCheckerIFrame";
-                iframe.src = "about:blank";
-                console.log("Repro: about blank set");
-                document.body.appendChild(iframe);
-                console.log("Repro: iframe appended");
-                iframe.contentWindow.location.href = "CustomProtocol:";
-                console.log("Repro: iframe href changed to custom protocol");
+                window.open('CustomProtocol:');
             }
 
           
